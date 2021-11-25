@@ -1,6 +1,6 @@
 CREATE TABLE Usuario(
 	IDUsuario INT(5) PRIMARY KEY,
-                nombre VARCHAR(40) NOT NULL,
+    nombre VARCHAR(40) NOT NULL,
 	correo VARCHAR(70) NOT NULL,
 	contraseña VARCHAR(10) NOT NULL
 );
@@ -30,6 +30,22 @@ CREATE TABLE Director(
 	nombreDirector VARCHAR(50) NOT NULL,
 	nacionalidad VARCHAR(50) NOT NULL
 );
+
+ALTER TABLE Pelicula ADD(
+    FOREIGN KEY(Director)
+    REFERENCES Director(IDDirector)
+);
+
+ALTER TABLE PeliculaActor ADD(
+    FOREIGN KEY(Pelicula)
+    REFERENCES Pelicula(IDPelicula)
+);
+
+ALTER TABLE PeliculaActor ADD(
+    FOREIGN KEY(Actor)
+    REFERENCES Actor(IDActor)
+);
+
 
 CREATE TABLE PeliculaActor(
 	IDPeliculaA INT(6) PRIMARY KEY,
