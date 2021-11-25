@@ -31,6 +31,18 @@ CREATE TABLE Director(
 	nacionalidad VARCHAR(50) NOT NULL
 );
 
+CREATE TABLE PeliculaActor(
+	IDPeliculaA INT(6) PRIMARY KEY,
+	Pelicula INT(6) NOT NULL,
+	Actor INT(7) NOT NULL
+);
+
+CREATE TABLE Actor(
+	IDActor INT(7) PRIMARY KEY,
+	nombreActor VARCHAR(60) NOT NULL,
+	nacionalidad VARCHAR(40) NOT NULL
+);
+
 ALTER TABLE Pelicula ADD(
     FOREIGN KEY(Director)
     REFERENCES Director(IDDirector)
@@ -44,17 +56,4 @@ ALTER TABLE PeliculaActor ADD(
 ALTER TABLE PeliculaActor ADD(
     FOREIGN KEY(Actor)
     REFERENCES Actor(IDActor)
-);
-
-
-CREATE TABLE PeliculaActor(
-	IDPeliculaA INT(6) PRIMARY KEY,
-	Pelicula INT(6) NOT NULL,
-	Actor INT(7) NOT NULL
-);
-
-CREATE TABLE Actor(
-	IDActor INT(7) PRIMARY KEY,
-	nombreActor VARCHAR(60) NOT NULL,
-	nacionalidad VARCHAR(40) NOT NULL
 );
